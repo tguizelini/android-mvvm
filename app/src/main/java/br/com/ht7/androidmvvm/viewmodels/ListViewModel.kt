@@ -1,6 +1,5 @@
 package br.com.ht7.androidmvvm.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.ht7.androidmvvm.di.components.DaggerCountryApiComponent
@@ -53,10 +52,9 @@ class ListViewModel : ViewModel() {
                     }
 
                     override fun onError(e: Throwable?) {
-                        Log.d("ListVM", e?.message)
                         loading.value = false
                         loadingError.value = true
-                        countries.value = listOf()
+                        countries.value = arrayListOf()
                     }
 
                 })

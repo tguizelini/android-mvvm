@@ -29,7 +29,7 @@ class ListViewModelTest {
     lateinit var countryService: CountryService
 
     @InjectMocks
-    var viewModel = ListViewModel()
+    var vm = ListViewModel()
 
     private var testList: Single<List<Country>>? = null
 
@@ -57,8 +57,9 @@ class ListViewModelTest {
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { schedulerFake }
     }
 
+
     @Test
-    fun getCountries() {
+    fun getCountriesSuccess() {
         val countryFake = Country("Brasil", "", "Brasília")
         val countryListFake: List<Country> = arrayListOf(countryFake)
 
@@ -66,10 +67,22 @@ class ListViewModelTest {
 
         `when`(countryService.getCountries()).thenReturn(testList)
 
-        viewModel.refresh()
+        vm.refresh()
 
-        Assert.assertEquals(1, viewModel.countries.value?.size)
-        Assert.assertEquals(false, viewModel.loadingError.value)
-        Assert.assertEquals(false, viewModel.loading.value)
+        Assert.assertEquals(1, vm.countries.value?.size)
+        Assert.assertEquals(false, vm.loadingError.value)
+        Assert.assertEquals(false, vm.loading.value)
+    }
+
+    @Test
+    fun getCountriesError() {
+        testList = Single.error(Throwable())
+
+        `when`(countryService.getCountries()).thenReturn(testList)
+
+        vm.refresh()
+
+        Assert.assertEquals(true, vm.loadingError.value)
+        Assert.assertEquals(false, vm.loading.value)
     }
 }
