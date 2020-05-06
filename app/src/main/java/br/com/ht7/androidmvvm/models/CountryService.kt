@@ -1,21 +1,15 @@
 package br.com.ht7.androidmvvm.models
 
+import br.com.ht7.androidmvvm.di.components.DaggerApiComponent
 import io.reactivex.Single
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 class CountryService {
-    private val baseUrl: String = "https://restcountries.eu/rest/v2/"
-    private val api: CountryApi
+    @Inject
+    lateinit var api: CountryApi
 
     init {
-        api = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
-            .create(CountryApi::class.java)
+        DaggerApiComponent.create().inject(this)
     }
 
     fun getCountries(): Single<List<Country>> = api.all()
