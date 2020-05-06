@@ -1,4 +1,4 @@
-package br.com.ht7.androidmvvm.model
+package br.com.ht7.androidmvvm.models
 
 import com.google.gson.annotations.SerializedName
 

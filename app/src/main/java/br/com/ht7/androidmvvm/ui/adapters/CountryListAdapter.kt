@@ -1,13 +1,13 @@
-package br.com.ht7.androidmvvm.view
+package br.com.ht7.androidmvvm.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.ht7.androidmvvm.R
-import br.com.ht7.androidmvvm.model.Country
-import br.com.ht7.androidmvvm.util.getProgressDrawable
-import br.com.ht7.androidmvvm.util.loadImage
+import br.com.ht7.androidmvvm.models.Country
+import br.com.ht7.androidmvvm.utils.getProgressDrawable
+import br.com.ht7.androidmvvm.utils.loadImage
 import kotlinx.android.synthetic.main.item_country.view.*
 
 class CountryListAdapter(private val countries: ArrayList<Country>): RecyclerView.Adapter<CountryListAdapter.CountryListViewHolder>() {
@@ -33,9 +33,10 @@ class CountryListAdapter(private val countries: ArrayList<Country>): RecyclerVie
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CountryListViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_country, parent, false)
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        CountryListViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_country, parent, false)
+        )
 
     override fun getItemCount(): Int = countries.size
 

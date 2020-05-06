@@ -1,10 +1,10 @@
-package br.com.ht7.androidmvvm.viewmodel
+package br.com.ht7.androidmvvm.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.ht7.androidmvvm.model.Country
-import br.com.ht7.androidmvvm.model.CountryService
+import br.com.ht7.androidmvvm.models.Country
+import br.com.ht7.androidmvvm.models.CountryService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

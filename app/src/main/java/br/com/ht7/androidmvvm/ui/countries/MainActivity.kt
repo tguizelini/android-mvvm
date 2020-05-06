@@ -1,4 +1,4 @@
-package br.com.ht7.androidmvvm.view
+package br.com.ht7.androidmvvm.ui.countries
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,17 +7,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.ht7.androidmvvm.R
-import br.com.ht7.androidmvvm.viewmodel.ListViewModel
+import br.com.ht7.androidmvvm.ui.adapters.CountryListAdapter
+import br.com.ht7.androidmvvm.viewmodels.ListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ListViewModel
 
-    private val countryListAdapter = CountryListAdapter(arrayListOf())
+    private val countryListAdapter =
+        CountryListAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        title = "Android MVVM"
 
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.refresh()

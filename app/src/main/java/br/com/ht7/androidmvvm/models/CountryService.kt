@@ -1,4 +1,4 @@
-package br.com.ht7.androidmvvm.model
+package br.com.ht7.androidmvvm.models
 
 import io.reactivex.Single
 import retrofit2.Retrofit
