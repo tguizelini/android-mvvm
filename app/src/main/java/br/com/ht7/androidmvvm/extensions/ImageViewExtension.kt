@@ -1,4 +1,4 @@
-package br.com.ht7.androidmvvm.utils
+package br.com.ht7.androidmvvm.extensions
 
 import android.content.Context
 import android.widget.ImageView

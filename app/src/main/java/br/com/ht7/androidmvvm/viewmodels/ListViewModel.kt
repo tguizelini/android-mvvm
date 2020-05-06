@@ -27,7 +27,8 @@ class ListViewModel : ViewModel() {
     }
 
     override fun onCleared() {
-        disposable.dispose()
+        super.onCleared()
+        disposable.clear()
     }
 
     fun refresh() {

@@ -31,7 +31,7 @@ def recyclerViewVersion = '1.1.0'
 def retrofitVersion = '2.3.0'
 def daggerVersion = '2.15'
 def glideVersion = '4.11.0'
-def mockitoVersion = '1.10.19'
+def mockitoVersion = '2.8.9'
 def rxJavaVersion = '2.0.1'
 
 dependencies {
@@ -69,10 +69,11 @@ dependencies {
     //Lifecycle
     implementation "android.arch.lifecycle:extensions:$lifeCycleVersion"
 
-    testImplementation 'junit:junit:4.12'
-
     //Mockito
+    testImplementation 'junit:junit:4.12'
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+    testImplementation "android.arch.core:core-testing:1.1.1"
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
