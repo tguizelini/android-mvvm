@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">android mvvm</string>
+    <string name="loading_message_error">Erro ao carregar lista</string>
+    <string name="country_image_description">Country image</string>
+    <string name="item_country_name">Name</string>
+    <string name="item_country_capital">Capital</string>
+</resources>
