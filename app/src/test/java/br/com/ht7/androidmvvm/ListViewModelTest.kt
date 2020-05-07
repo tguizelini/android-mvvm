@@ -57,7 +57,6 @@ class ListViewModelTest {
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { schedulerFake }
     }
 
-
     @Test
     fun getCountriesSuccess() {
         val countryFake = Country("Brasil", "", "Brasília")
